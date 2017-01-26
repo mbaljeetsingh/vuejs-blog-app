@@ -9,7 +9,7 @@
         <div class="caption">
           <h3>{{post.title | uppercase}}</h3>
           <p>{{post.body}}</p>
-          <p><a href="#" class="btn btn-primary" role="button">Read More</a> <a href="#" class="btn btn-danger" role="button">Delete</a></p>
+          <p><a href="#" class="btn btn-primary" role="button">Read More</a> <a href="#" class="btn btn-danger" role="button" v-on:click="deletePost(post)">Delete</a></p>
         </div>
       </div>
     </div>
@@ -41,6 +41,12 @@ export default {
         'title': 'ea molestias quasi exercitationem repellat qui ipsa sit aut',
         'body': 'et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut'
       }]
+    }
+  },
+  methods: {
+    deletePost: function (post) {
+      console.log(post)
+      this.posts.splice(this.posts.indexOf(post), 1)
     }
   }
 }
